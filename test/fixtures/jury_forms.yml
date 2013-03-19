@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  applied_study_form_id: 1
+  judge_id: 1
+  criteria_id: 1
+  comments: MyString
+  final_assessment: MyString
+
+two:
+  applied_study_form_id: 1
+  judge_id: 1
+  criteria_id: 1
+  comments: MyString
+  final_assessment: MyString

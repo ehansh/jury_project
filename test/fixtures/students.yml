@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  instructor_id: 1
+  jury_id: 1
+  appied_study_form_id: 1
+  major: MyString
+  graduation_year: 1
+  course_num: MyString
+  instrument: MyString
+
+two:
+  instructor_id: 1
+  jury_id: 1
+  appied_study_form_id: 1
+  major: MyString
+  graduation_year: 1
+  course_num: MyString
+  instrument: MyString

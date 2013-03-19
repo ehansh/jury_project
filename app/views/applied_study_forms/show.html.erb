@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Student:</b>
+  <%= @applied_study_form.student_id %>
+</p>
+
+<p>
+  <b>Repertoire:</b>
+  <%= @applied_study_form.repertoire_id %>
+</p>
+
+<p>
+  <b>Studies and scales:</b>
+  <%= @applied_study_form.studies_and_scales %>
+</p>
+
+<p>
+  <b>Public performances:</b>
+  <%= @applied_study_form.public_performances %>
+</p>
+
+
+<%= link_to 'Edit', edit_applied_study_form_path(@applied_study_form) %> |
+<%= link_to 'Back', applied_study_forms_path %>

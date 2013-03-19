@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Applied study form:</b>
+  <%= @jury_form.applied_study_form_id %>
+</p>
+
+<p>
+  <b>Judge:</b>
+  <%= @jury_form.judge_id %>
+</p>
+
+<p>
+  <b>Criteria:</b>
+  <%= @jury_form.criteria_id %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @jury_form.comments %>
+</p>
+
+<p>
+  <b>Final assessment:</b>
+  <%= @jury_form.final_assessment %>
+</p>
+
+
+<%= link_to 'Edit', edit_jury_form_path(@jury_form) %> |
+<%= link_to 'Back', jury_forms_path %>

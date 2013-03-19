@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  student_id: 1
+  repertoire_id: 1
+  studies_and_scales: MyString
+  public_performances: MyString
+
+two:
+  student_id: 1
+  repertoire_id: 1
+  studies_and_scales: MyString
+  public_performances: MyString

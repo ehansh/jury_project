@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  composer: MyString
+  duration: MyString
+  memorized: false
+  on_jury: false
+
+two:
+  title: MyString
+  composer: MyString
+  duration: MyString
+  memorized: false
+  on_jury: false

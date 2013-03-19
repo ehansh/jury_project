@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Instructor:</b>
+  <%= @student.instructor_id %>
+</p>
+
+<p>
+  <b>Jury:</b>
+  <%= @student.jury_id %>
+</p>
+
+<p>
+  <b>Appied study form:</b>
+  <%= @student.appied_study_form_id %>
+</p>
+
+<p>
+  <b>Major:</b>
+  <%= @student.major %>
+</p>
+
+<p>
+  <b>Graduation year:</b>
+  <%= @student.graduation_year %>
+</p>
+
+<p>
+  <b>Course num:</b>
+  <%= @student.course_num %>
+</p>
+
+<p>
+  <b>Instrument:</b>
+  <%= @student.instrument %>
+</p>
+
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>

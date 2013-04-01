@@ -1,40 +1,36 @@
 <p id="notice"><%= notice %></p>
+<div>
+  <p>
+    <b>Name:</b>
+    <%= @student.name %>
 
-<p>
-  <b>Instructor:</b>
-  <%= @student.instructor_id %>
-</p>
+    <b>Email:</b>
+    <%= @student.email %>
+  </p>
 
-<p>
-  <b>Jury:</b>
-  <%= @student.jury_id %>
-</p>
 
-<p>
-  <b>Appied study form:</b>
-  <%= @student.appied_study_form_id %>
-</p>
+  <p>
+    <b>Instructor:</b>
+    <%= @student.instructor_id %>
 
-<p>
-  <b>Major:</b>
-  <%= @student.major %>
-</p>
+    <b>Instrument:</b>
+    <%= @student.instrument %>
 
-<p>
-  <b>Graduation year:</b>
-  <%= @student.graduation_year %>
-</p>
+    <b>Major:</b>
+    <%= @student.major %>
+  </p>
 
-<p>
-  <b>Course num:</b>
-  <%= @student.course_num %>
-</p>
+  <p>
+    <b>Graduation year:</b>
+    <%= @student.graduation_year %>
 
-<p>
-  <b>Instrument:</b>
-  <%= @student.instrument %>
-</p>
+    <b>Course Number:</b>
+    <%= @student.course_num %>
+  </p>
+</div>
 
 
 <%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
+<%= link_to 'Back', students_path %> |
+<%= link_to 'Applied Study Forms', student_applied_study_forms_path(@student) %> |
+<%= link_to 'View Past Juries', '#' %>

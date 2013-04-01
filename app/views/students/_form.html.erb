@@ -12,17 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :instructor_id %><br />
-    <%= f.number_field :instructor_id %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :jury_id %><br />
-    <%= f.number_field :jury_id %>
+    <%= f.label :password %><br />
+    <%= f.text_field :password %>
   </div>
   <div class="field">
-    <%= f.label :appied_study_form_id %><br />
-    <%= f.number_field :appied_study_form_id %>
+    <%= f.label :password_confirmation %><br />
+    <%= f.text_field :password_confirmation %>
   </div>
+
   <div class="field">
     <%= f.label :major %><br />
     <%= f.text_field :major %>

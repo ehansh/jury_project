@@ -1,4 +1,4 @@
-<%= form_for(@applied_study_form) do |f| %>
+<%= form_for([@student, @applied_study_form]) do |f| %>
   <% if @applied_study_form.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@applied_study_form.errors.count, "error") %> prohibited this applied_study_form from being saved:</h2>
@@ -13,11 +13,10 @@
 
   <div class="field">
     <%= f.label :student_id %><br />
-    <%= f.number_field :student_id %>
+    <%= f.number_field :student_id, value: @student.id %>
   </div>
   <div class="field">
-    <%= f.label :repertoire_id %><br />
-    <%= f.number_field :repertoire_id %>
+    This will be where the student will be able to select repetoire to be on their Jury.
   </div>
   <div class="field">
     <%= f.label :studies_and_scales %><br />

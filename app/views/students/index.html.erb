@@ -2,9 +2,8 @@
 
 <table>
   <tr>
+    <th>Name</th>
     <th>Instructor</th>
-    <th>Jury</th>
-    <th>Appied study form</th>
     <th>Major</th>
     <th>Graduation year</th>
     <th>Course num</th>
@@ -16,9 +15,8 @@
 
 <% @students.each do |student| %>
   <tr>
+    <td><%= student.name %></td>
     <td><%= student.instructor_id %></td>
-    <td><%= student.jury_id %></td>
-    <td><%= student.appied_study_form_id %></td>
     <td><%= student.major %></td>
     <td><%= student.graduation_year %></td>
     <td><%= student.course_num %></td>

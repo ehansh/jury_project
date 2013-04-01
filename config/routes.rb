@@ -2,11 +2,9 @@ JuryProject::Application.routes.draw do
   resources :jury_forms
 
 
-  resources :applied_study_forms
-
-
-  resources :students
-
+  resources :students do
+    resources :applied_study_forms
+  end
 
   resources :instructors
 

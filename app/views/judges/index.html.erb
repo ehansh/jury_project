@@ -2,7 +2,8 @@
 
 <table>
   <tr>
-    <th>Jury</th>
+    <th>Name</th>
+    <th>Email</th>
     <th></th>
     <th></th>
     <th></th>
@@ -10,7 +11,8 @@
 
 <% @judges.each do |judge| %>
   <tr>
-    <td><%= judge.jury_id %></td>
+    <td><%= judge.name %>
+    <td><%= judge.email %></td>
     <td><%= link_to 'Show', judge %></td>
     <td><%= link_to 'Edit', edit_judge_path(judge) %></td>
     <td><%= link_to 'Destroy', judge, method: :delete, data: { confirm: 'Are you sure?' } %></td>

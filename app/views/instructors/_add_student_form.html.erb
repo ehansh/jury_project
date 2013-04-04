@@ -1,0 +1,14 @@
+<div>
+
+	<%= form_for(@instructor) do |f| %>
+
+		<div class="field">
+    		<%= f.label :student_id, "Add a Student" %> :
+    		<%= f.collection_select :student_id, Student.all, :id, :name %>
+   			<%= f.submit "Add Student"%>
+		</div>
+  		
+
+  	<% end %>
+
+</div>

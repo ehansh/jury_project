@@ -60,6 +60,12 @@ class InstructorsController < ApplicationController
 
     respond_to do |format|
       if @instructor.update_attributes(params[:instructor])
+        #updating which student is in the current ID
+        @student = Student.find(@instructor.student_id)
+        @instructor.students << @student
+        #Debug message
+        puts "***name #{@student.name}, id: #{@student.id}, instructor id: #{@student.instructor_id}***"
+
         format.html { redirect_to @instructor, notice: 'Instructor was successfully updated.' }
         format.json { head :no_content }
       else

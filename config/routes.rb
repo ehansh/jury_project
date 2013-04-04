@@ -6,7 +6,7 @@ JuryProject::Application.routes.draw do
     resources :applied_study_forms
   end
 
-  resources :instructors
+  resources :instructors 
 
 
   resources :judges

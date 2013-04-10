@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :student_id %><br />
-    <%= f.number_field :student_id, value: @student.id %>
+    <%= f.collection_select :student_id, Student.all, :id, :name %>
   </div>
   <div class="field">
     This will be where the student will be able to select repetoire to be on their Jury.

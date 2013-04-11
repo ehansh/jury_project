@@ -1,0 +1,23 @@
+<h1>Listing criteria_groups</h1>
+
+<table>
+  <tr>
+    <th>Criteria</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @criteria_groups.each do |criteria_group| %>
+  <tr>
+    <td><%= criteria_group.name %></td>
+    <td><%= link_to 'Show', criteria_group %></td>
+    <td><%= link_to 'Edit', edit_criteria_group_path(criteria_group) %></td>
+    <td><%= link_to 'Destroy', criteria_group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Criteria group', new_criteria_group_path %>

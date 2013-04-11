@@ -46,9 +46,11 @@ class AppliedStudyFormsController < ApplicationController
   def create
     @applied_study_form = AppliedStudyForm.new(params[:applied_study_form])
 
+
     respond_to do |format|
       if @applied_study_form.save
-        format.html { redirect_to @applied_study_form, notice: 'Applied study form was successfully created.' }
+        @student = Student.find(@applied_study_form.student_id)
+        format.html { redirect_to @student, notice: 'Applied study form was successfully created.' }
         format.json { render json: @applied_study_form, status: :created, location: @applied_study_form }
       else
         format.html { render action: "new" }

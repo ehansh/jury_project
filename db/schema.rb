@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130404034342) do
+ActiveRecord::Schema.define(:version => 20130411031202) do
 
   create_table "applied_study_forms", :force => true do |t|
     t.integer  "student_id"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(:version => 20130404034342) do
     t.float    "value"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "criteria_groups", :force => true do |t|
+    t.integer  "criteria_id"
+    t.string   "name"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "instructors", :force => true do |t|
@@ -52,6 +59,20 @@ ActiveRecord::Schema.define(:version => 20130404034342) do
     t.string   "name"
     t.string   "password"
     t.string   "password_confirmation"
+  end
+
+  create_table "judges_juries", :id => false, :force => true do |t|
+    t.integer "judge_id"
+    t.integer "jury_id"
+  end
+
+  create_table "juries", :force => true do |t|
+    t.integer  "jury_form_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.integer  "student_id"
+    t.integer  "criteria_group_id"
+    t.integer  "judge_id"
   end
 
   create_table "jury_forms", :force => true do |t|

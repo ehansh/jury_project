@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<div>
+<h1>Jury for: <%= @jury.student.name %></h1>
+<h2>Judged by: <%= Judge.find(@jury.judge_id).name %> (This is a temp fix until current_user is implemented)</h2> 
+
+</div>
+
+<%= applied_study_information(@jury.student) %>
+
+<p>
+
+<%= render 'active_jury' %>
+
+
+
+<%= link_to 'Edit', edit_jury_path(@jury) %> |
+<%= link_to 'Back', juries_path %>

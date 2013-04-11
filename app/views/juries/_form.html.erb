@@ -1,0 +1,32 @@
+<%= form_for(@jury) do |f| %>
+  <% if @jury.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@jury.errors.count, "error") %> prohibited this jury from being saved:</h2>
+
+      <ul>
+      <% @jury.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+      <%= f.label :student_id, "Student" %> :
+      <%= f.collection_select :student_id, Student.all, :id, :name %>
+  </div>
+
+  <div class="field">
+      <%= f.label :judge_id, "Judge" %> :
+      <%= f.collection_select :judge_id, Judge.all, :id, :name %>
+  </div>
+
+  <div class="field">
+      <%= f.label :criteria_group_id, "Criteria" %> :
+      <%= f.collection_select :criteria_group_id, CriteriaGroup.all, :id, :name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

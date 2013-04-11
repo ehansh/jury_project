@@ -1,17 +1,12 @@
 <%= form_for(@jury_form) do |f| %>
 
-  <div class="field">
-    <%= f.label :applied_study_form_id %><br />
-    <%= f.number_field :applied_study_form_id %>
-  </div>
-  <div class="field">
-    <%= f.label :judge_id %><br />
-    <%= f.number_field :judge_id %>
-  </div>
+
   <div class="field">
     <%= f.label :criteria_id %><br />
-    <%= f.number_field :criteria_id %>
+    <% cg = CriteriaGroup.find(@jury.criteria_group_id) %>
+    For each criteria a name/score will be shown, this is currently bugging
   </div>
+
   <div class="field">
     <%= f.label :comments %><br />
     <%= f.text_field :comments %>
@@ -21,6 +16,7 @@
     <%= f.text_field :final_assessment %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit Jury"%>
   </div>
+
 <% end %>

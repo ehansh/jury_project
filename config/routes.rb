@@ -1,4 +1,10 @@
 JuryProject::Application.routes.draw do
+  resources :criteria_groups
+
+
+  resources :juries
+
+
   resources :jury_forms
 
 

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @measure_group.name %>
+</p>
+
+<p>
+  <b>Measure:</b>
+  <%= @measure_group.measure_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_measure_group_path(@measure_group) %> |
+<%= link_to 'Back', measure_groups_path %>

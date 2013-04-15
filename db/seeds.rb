@@ -6,15 +6,20 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-CriteriaGroup.delete_all
-Criteria.delete_all
+MeasureGroup.delete_all
+Measure.delete_all
 Jury.delete_all
 
+keyboard = MeasureGroup.create({name: 'Keyboard'})
+vocal = MeasureGroup.create({name: 'Vocal'})
 
+first = Measure.create(name: 'Use of Pedal' )
+last = Measure.create(name: 'Pitch' )
 
+keyboard.measure_id = first.id
+puts "#{keyboard.measure_id}"
+keyboard.measures << first
+keyboard.measures << last
 
-keyboard = CriteriaGroup.new({name: 'Keyboard'})
-vocal = CriteriaGroup.new({name: 'Vocal'})
+puts keyboard.measures.first.name
 
-first = Criteria.create(name: 'Use of Pedal', criteria_group: keyboard)
-last = Criteria.create(name: 'Pitch', criteria_group: vocal)

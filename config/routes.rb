@@ -1,4 +1,7 @@
 JuryProject::Application.routes.draw do
+  resources :measure_groups
+
+
   resources :criteria_groups
 
 

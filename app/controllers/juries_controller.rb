@@ -58,7 +58,7 @@ class JuriesController < ApplicationController
         @jury.judge << judge
 
         puts "****************name #{student.name}, id: #{student.id}*********"
-        puts "***************** #{@jury.criteria_group_id} *******************"
+        puts "***************** #{@jury.measure_group_id} *******************"
 
         #criteria_group = CriteriaGroup.find(@jury.criteria_group_id)
 

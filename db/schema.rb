@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130411031202) do
+ActiveRecord::Schema.define(:version => 20130415065825) do
 
   create_table "applied_study_forms", :force => true do |t|
     t.integer  "student_id"
@@ -25,8 +25,9 @@ ActiveRecord::Schema.define(:version => 20130411031202) do
   create_table "criteria", :force => true do |t|
     t.string   "name"
     t.float    "value"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.integer  "criteria_group_id"
   end
 
   create_table "criteria_groups", :force => true do |t|
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20130411031202) do
     t.integer  "student_id"
     t.integer  "criteria_group_id"
     t.integer  "judge_id"
+    t.integer  "measure_group_id"
   end
 
   create_table "jury_forms", :force => true do |t|
@@ -83,6 +85,22 @@ ActiveRecord::Schema.define(:version => 20130411031202) do
     t.string   "final_assessment"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
+  end
+
+  create_table "measure_groups", :force => true do |t|
+    t.string   "name"
+    t.integer  "measure_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "jury_id"
+  end
+
+  create_table "measures", :force => true do |t|
+    t.string   "name"
+    t.integer  "score"
+    t.integer  "measure_group_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "repertoires", :force => true do |t|

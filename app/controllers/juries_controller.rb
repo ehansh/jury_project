@@ -18,7 +18,7 @@ class JuriesController < ApplicationController
     if @jury.jury_form_id.nil?
       @jury_form = JuryForm.new(judge_id: @jury.judge_id)
     else
-      jury_form = JuryForm.find(@jury.jury_form_id)
+      @jury_form = JuryForm.find(@jury.jury_form_id)
     end
 
     respond_to do |format|
@@ -59,8 +59,6 @@ class JuriesController < ApplicationController
 
         puts "****************name #{student.name}, id: #{student.id}*********"
         puts "***************** #{@jury.measure_group_id} *******************"
-
-        #criteria_group = CriteriaGroup.find(@jury.criteria_group_id)
 
         format.html { redirect_to @jury, notice: 'Jury was successfully created.' }
         format.json { render json: @jury, status: :created, location: @jury }

@@ -3,7 +3,7 @@ module InstructorsHelper
 	def create_student_table(instructor)
 		puts "****************" << instructor.name << "*******************"
 		out =  %Q[
-				<table class="table table-striped table-bordered"
+				<table class="table table-striped table-bordered">
 				<tr>
 	        		<th>Students</th>
 	      		</tr>

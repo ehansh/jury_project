@@ -2,6 +2,14 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
 
+group :test do
+	gem 'cucumber'
+	gem 'cucumber-rails'
+	gem 'capybara'
+	gem "launchy"
+	gem 'rspec-expectations'
+end
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

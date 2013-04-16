@@ -10,6 +10,8 @@ JuryProject::Application.routes.draw do
 
   resources :jury_forms
 
+  resources :repertoires
+
 
   resources :students do
     resources :applied_study_forms

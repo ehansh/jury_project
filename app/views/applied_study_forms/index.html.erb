@@ -2,10 +2,8 @@
 
 <table>
   <tr>
-    <th>Student</th>
-    <th>Repertoire</th>
-    <th>Studies and scales</th>
-    <th>Public performances</th>
+    <th>Studies and Scales | </th> 
+    <th>Public Performances </th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,8 +11,6 @@
 
 <% @applied_study_forms.each do |applied_study_form| %>
   <tr>
-    <td><%= applied_study_form.student_id %></td>
-    <td><%= applied_study_form.repertoire_id %></td>
     <td><%= applied_study_form.studies_and_scales %></td>
     <td><%= applied_study_form.public_performances %></td>
     <td><%= link_to 'Show', student_applied_study_form_path(@student, applied_study_form) %></td>

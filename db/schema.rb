@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130416191812) do
+ActiveRecord::Schema.define(:version => 20130417213525) do
 
   create_table "applied_study_forms", :force => true do |t|
     t.integer  "student_id"
@@ -109,9 +109,10 @@ ActiveRecord::Schema.define(:version => 20130416191812) do
     t.string   "duration"
     t.boolean  "memorized"
     t.boolean  "on_jury"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
     t.integer  "student_id"
+    t.integer  "applied_study_form_id"
   end
 
   create_table "students", :force => true do |t|

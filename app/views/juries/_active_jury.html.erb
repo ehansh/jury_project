@@ -2,14 +2,13 @@
 
 
   <div class="field">
-    <%= f.label :measure_id %><br />
+    <%= f.label :measure_id, "Criteria:" %><br />
     <% cg = MeasureGroup.find(@jury.measure_group_id) %>
     <% cg.measures.each do |criteria| %>
       <%= criteria.name %>:
       <%= f.number_field :criteria_id %>
     <% end %>
     <p>
-    For each criteria a name/score will be shown, this is currently bugging
   </div>
 
   <div class="field">

@@ -44,9 +44,11 @@ class RepertoiresController < ApplicationController
 
     respond_to do |format|
       if @repertoire.save
-      	
-        format.html { redirect_to @repertoire, notice: 'Repertoire was successfully created.' }
-        format.json { render json: @repertoire, status: :created, location: @repertoire }
+        @student = Student.find(@repertoire.student_id)
+        @student.repertoires << @repertoire
+
+        format.html { redirect_to @student, notice: 'Repertoire was successfully created.' }
+        format.json { render json: @student, status: :created, location: @repertoire }
       else
         format.html { render action: "new" }
         format.json { render json: @repertoire.errors, status: :unprocessable_entity }
@@ -74,10 +76,11 @@ class RepertoiresController < ApplicationController
   # DELETE /repertoires/1.json
   def destroy
     @repertoire = Repertoire.find(params[:id])
+    @student = Student.find(@repertoire.student_id)
     @repertoire.destroy
 
     respond_to do |format|
-      format.html { redirect_to repertoires_url }
+      format.html { redirect_to @student }
       format.json { head :no_content }
     end
   end

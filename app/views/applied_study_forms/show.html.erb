@@ -2,21 +2,21 @@
 
 <p>
   <b>Student:</b>
-  <%= @applied_study_form.student_id %>
+  <%= @applied_study_form.student.name %>
 </p>
 
 <p>
   <b>Repertoire:</b>
-  <%= @applied_study_form.repertoire_id %>
+  <%= Repertoire.find(@applied_study_form.repertoire_id).title %>
 </p>
 
 <p>
-  <b>Studies and scales:</b>
+  <b>Studies and Scales:</b>
   <%= @applied_study_form.studies_and_scales %>
 </p>
 
 <p>
-  <b>Public performances:</b>
+  <b>Public Performances:</b>
   <%= @applied_study_form.public_performances %>
 </p>
 

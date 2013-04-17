@@ -3,14 +3,15 @@
 
 	<b> Add Repertoire </b>
 	<%= form_for (@repertoire) do |f| %>
-		<div class="field">
-			<%= f.label :composer %><br />
-    		<%= f.text_field :composer %>
-		</div>
 
 		<div class="field">
 			<%= f.label :title %><br />
     		<%= f.text_field :title %>
+		</div>
+
+		<div class="field">
+			<%= f.label :composer %><br />
+    		<%= f.text_field :composer %>
 		</div>
 
 		<div class="field">
@@ -23,13 +24,14 @@
     		<%= f.number_field :memorized %>
 		</div>
 
-		<div class="field">
-			<%= f.label :duration %><br />
-    		<%= f.number_field :duration %>
-		</div>
+  		<div class="field">
+  			<%= f.hidden_field :student_id %>
+  			<% @repertoire.student_id = @student.id %>
+  		</div>
 
 		<div class="actions">
     		<%= f.submit %>
   		</div>
+
 	<% end %> 
 </div>

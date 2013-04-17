@@ -12,9 +12,9 @@ JuryProject::Application.routes.draw do
 
   resources :repertoires
 
-
   resources :students do
     resources :applied_study_forms
+    resources :repertoires
   end
 
   resources :instructors 

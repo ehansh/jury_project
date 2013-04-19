@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130418164308) do
+ActiveRecord::Schema.define(:version => 20130419173335) do
 
   create_table "applied_study_forms", :force => true do |t|
     t.integer  "student_id"
@@ -45,7 +45,11 @@ ActiveRecord::Schema.define(:version => 20130418164308) do
     t.string   "name"
     t.string   "password"
     t.string   "password_confirmation"
+    t.string   "password_digest"
+    t.string   "remember_token"
   end
+
+  add_index "instructors", ["remember_token"], :name => "index_instructors_on_remember_token"
 
   create_table "instructors_students", :id => false, :force => true do |t|
     t.integer "instructor_id"
@@ -60,7 +64,11 @@ ActiveRecord::Schema.define(:version => 20130418164308) do
     t.string   "name"
     t.string   "password"
     t.string   "password_confirmation"
+    t.string   "password_digest"
+    t.string   "remember_token"
   end
+
+  add_index "judges", ["remember_token"], :name => "index_judges_on_remember_token"
 
   create_table "judges_juries", :id => false, :force => true do |t|
     t.integer "judge_id"
@@ -131,9 +139,11 @@ ActiveRecord::Schema.define(:version => 20130418164308) do
     t.string   "password_confirmation"
     t.integer  "repertoire_id"
     t.string   "password_digest"
+    t.string   "remember_token"
   end
 
   add_index "students", ["email"], :name => "index_students_on_email", :unique => true
+  add_index "students", ["remember_token"], :name => "index_students_on_remember_token"
 
   create_table "users", :force => true do |t|
     t.string   "name"

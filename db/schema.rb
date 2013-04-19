@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130417213525) do
+ActiveRecord::Schema.define(:version => 20130418164308) do
 
   create_table "applied_study_forms", :force => true do |t|
     t.integer  "student_id"
@@ -130,7 +130,10 @@ ActiveRecord::Schema.define(:version => 20130417213525) do
     t.string   "password"
     t.string   "password_confirmation"
     t.integer  "repertoire_id"
+    t.string   "password_digest"
   end
+
+  add_index "students", ["email"], :name => "index_students_on_email", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "name"

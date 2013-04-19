@@ -1,12 +1,9 @@
 JuryProject::Application.routes.draw do
   resources :measure_groups
 
-
   resources :criteria_groups
 
-
   resources :juries
-
 
   resources :jury_forms
 
@@ -17,13 +14,18 @@ JuryProject::Application.routes.draw do
     resources :repertoires
   end
 
-  resources :instructors 
+  resources :sessions, only: [:new, :create, :destroy]
 
+  resources :instructors 
 
   resources :judges
 
-
   resources :users
+
+  match '/signup',  to: 'students#new'
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
+
 
 
   # The priority is based upon order of creation:

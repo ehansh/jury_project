@@ -9,7 +9,7 @@ class Instructor < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
   validates :password, presence: true, length: { minimum: 6 }, on: :create
-  validates :password_confirmation, presence: true 
+  validates :password_confirmation, presence: true, on: :create
 
   has_many :students
 

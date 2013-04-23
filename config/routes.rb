@@ -9,7 +9,7 @@ JuryProject::Application.routes.draw do
 
   resources :repertoires
 
-  root to: "sessions#new"
+  root to: 'sessions#new'
 
   resources :students do
     resources :applied_study_forms

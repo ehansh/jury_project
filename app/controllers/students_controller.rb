@@ -15,6 +15,7 @@ class StudentsController < ApplicationController
   def show
     @student = Student.find(params[:id])
     @repertoire = Repertoire.new(student_id: @student.id)
+    @applied_study_forms = @student.applied_study_forms
 
     respond_to do |format|
       format.html # show.html.erb

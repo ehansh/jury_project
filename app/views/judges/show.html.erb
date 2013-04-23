@@ -1,20 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @judge.name %>
-</p>
+<div>
+  <div id="tabs">
+    <ul class="nav nav-tabs" data-tabs="tabs">
+      <li class="active"><a href="#home" data-toggle="tab">Judge Information</a></li>
+      <li><a href="#juries" data-toggle="tab">Juries</a></li>
+      <li><a href="#new_jury" data-toggle="tab">New Jury</a></li>
+   </ul>
+  </div>
 
-<p>
-  <b>Email:</b>
-  <%= @judge.email %>
-</p>
+  <div id="my-tab-content" class="tab-content">
 
-<p>
-  <b>Juries:</b>
-  <%= link_to 'Juries', '#' %>
-</p>
+    <div class="tab-pane active" id="home">
+      <p>
+  		<b>Name:</b>
+  			<%= @judge.name %>
+		</p>
 
+	<p>
+  		<b>Email:</b>
+ 		 <%= @judge.email %>
+	</p>
+	<%= link_to 'Edit', edit_judge_path(@judge) %>
 
-<%= link_to 'Edit', edit_judge_path(@judge) %> |
-<%= link_to 'Back', judges_path %>
+   </div>
+
+    <div class="tab-pane" id="juries">
+      This is where a judge will be able to view their past Juries
+    </div>
+
+    <div class="tab-pane" id="new_jury">
+      <%= render 'juries/form' %>
+    </div>
+
+  </div>
+</div>

@@ -1,19 +1,23 @@
 <p id="notice"><%= notice %></p>
-<div id="instructor_info">
-	<p>
-	<b>Name:</b>
-	<%= @instructor.name %>
-	</p>
 
-	<p>
-	<b>Email:</b>
-	<%= @instructor.email %>
-	</p>
+<div>
+  <div id="tabs">
+    <ul class="nav nav-tabs" data-tabs="tabs">
+      <li class="active"><a href="#home" data-toggle="tab">Instructor Information</a></li>
+      <li><a href="#students" data-toggle="tab">Students</a></li>
+   </ul>
+  </div>
 
-	<%= create_student_table(@instructor) %>
+  <div id="my-tab-content" class="tab-content">
+
+    <div class="tab-pane active" id="home">
+      <%= render 'info' %>
+      <%= link_to 'Edit', edit_instructor_path(@instructor) %>
+    </div>
+
+    <div class="tab-pane" id="students">
+      <%= create_student_table(@instructor) %>
+      <%= render 'add_student_form' %>
+    </div>
+  </div>
 </div>
-
-
-<%= render 'add_student_form' %>
-<%= link_to 'Edit', edit_instructor_path(@instructor) %> |
-<%= link_to 'Back', instructors_path %>

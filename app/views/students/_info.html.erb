@@ -1,0 +1,29 @@
+<div id="student_info">
+  <p>
+    <b>Name:</b>
+    <%= @student.name %>
+
+    <b>Email:</b>
+    <%= @student.email %>
+  </p>
+
+  <p>
+    <b>Instructor:</b>
+    <%= Instructor.find(@student.instructor_id).name rescue 'this student has no instructor' %>
+
+    <b>Instrument:</b>
+    <%= @student.instrument %>
+
+    <b>Major:</b>
+    <%= @student.major %>
+  </p>
+
+  <p>
+    <b>Graduation year:</b>
+    <%= @student.graduation_year %>
+
+    <b>Course Number:</b>
+    <%= @student.course_num %>
+  </p>
+  <%= link_to 'Edit', edit_student_path(@student) %>
+</div>

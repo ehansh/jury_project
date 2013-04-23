@@ -16,6 +16,7 @@ module StudentsHelper
 				out << "<td>" << link_info << "</td></tr>"
 			end
 		end
+		out << "</table>"
 		out.html_safe	
 	end
 end

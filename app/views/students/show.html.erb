@@ -1,40 +1,34 @@
 <p id="notice"><%= notice %></p>
-<div>
-  <p>
-    <b>Name:</b>
-    <%= @student.name %>
-
-    <b>Email:</b>
-    <%= @student.email %>
-  </p>
-
-  <p>
-    <b>Instructor:</b>
-    <%= Instructor.find(@student.instructor_id).name rescue 'this student has no instructor' %>
-
-    <b>Instrument:</b>
-    <%= @student.instrument %>
-
-    <b>Major:</b>
-    <%= @student.major %>
-  </p>
-
-  <p>
-    <b>Graduation year:</b>
-    <%= @student.graduation_year %>
-
-    <b>Course Number:</b>
-    <%= @student.course_num %>
-  </p>
-  
-  <%= render 'repertoire' %>
-
-  
-</div>
 
 <div>
-  <%= link_to 'Edit', edit_student_path(@student) %> |
-  <%= link_to 'Back', students_path %> |
-  <%= link_to 'Applied Study Forms', student_applied_study_forms_path(@student) %> |
-  <%= link_to 'View Past Juries', '#' %>
+  <div id="tabs">
+    <ul class="nav nav-tabs" data-tabs="tabs">
+      <li class="active"><a href="#home" data-toggle="tab">Student Information</a></li>
+      <li><a href="#repertoire" data-toggle="tab">Repertoire</a></li>
+      <li><a href="#applied_study_form" data-toggle="tab">Applied Study Forms</a></li>
+      <li><a href="#juries" data-toggle="tab">Juries</a></li>
+   </ul>
+  </div>
+
+  <div id="my-tab-content" class="tab-content">
+
+    <div class="tab-pane active" id="home">
+      <%= render 'info' %>
+    </div>
+
+    <div class="tab-pane" id="repertoire">
+      <%= render 'repertoire' %>
+    </div>
+
+    <div class="tab-pane" id="applied_study_form">
+      <%= render 'applied_study_forms/index' %>
+    </div>
+
+    <div class="tab-pane" id="juries">
+      This is where a Student will be able to view their past Juries
+    </div>
+
+  </div>
 </div>
+
+

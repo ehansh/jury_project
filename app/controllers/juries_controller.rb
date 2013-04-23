@@ -57,6 +57,9 @@ class JuriesController < ApplicationController
         judge = Judge.find(@jury.judge_id)
         @jury.judge << judge
 
+        measure_group = MeasureGroup.find(@jury.measure_group_id)
+        @jury.measure_group = measure_group
+
         format.html { redirect_to @jury, notice: 'Jury was successfully created.' }
         format.json { render json: @jury, status: :created, location: @jury }
       else

@@ -4,5 +4,5 @@ class Jury < ActiveRecord::Base
   has_many 	 :jury_forms
   has_and_belongs_to_many :judge
   belongs_to :student
-  has_one :measure_group
+  belongs_to :measure_group
 end

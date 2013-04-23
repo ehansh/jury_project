@@ -18,7 +18,8 @@
 
   <div class="field">
       <%= f.label :judge_id, "Judge" %> :
-      <%= f.collection_select :judge_id, Judge.all, :id, :name %>
+      <%= @judge.name %>
+      <%= f.hidden_field :judge_id, value: @judge.id %>
   </div>
 
   <div class="field">

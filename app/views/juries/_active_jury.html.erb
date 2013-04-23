@@ -3,11 +3,13 @@
 
   <div class="field">
     <%= f.label :measure_id, "Criteria:" %><br />
-    <% cg = MeasureGroup.find(@jury.measure_group_id) %>
+    <% cg = @jury.measure_group %>
     <% cg.measures.each do |criteria| %>
       <%= criteria.name %>:
       <%= f.number_field :criteria_id %>
     <% end %>
+    !!!for each score save the param to an array, then update the scores using that array!!!
+
     <p>
   </div>
 

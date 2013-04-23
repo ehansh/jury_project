@@ -14,6 +14,7 @@ class JudgesController < ApplicationController
   # GET /judges/1.json
   def show
     @judge = Judge.find(params[:id])
+    @jury = Jury.new
 
     respond_to do |format|
       format.html # show.html.erb

@@ -40,7 +40,19 @@ class JuryFormsController < ApplicationController
   # POST /jury_forms
   # POST /jury_forms.json
   def create
-    @jury_form = JuryForm.new(params[:jury_form])
+    @jury_form = JuryForm.new
+    measure_values = params[:jury_form][:measure_id]
+    measure_values.each do |m|
+      measure = Measure.find(m[0])
+      puts measure.name 
+      measure.score = m[1]
+      puts measure.score
+      @jury_form.measures << measure
+    end
+    @jury_form.comments = params[:jury_form][:comments]
+    @jury_form.judge_id = params[:jury_form][:judge_id]
+    @jury_form.final_assessment = params[:jury_form][:final_assessment]
+    @jury_form.applied_study_form_id = params[:jury_form][:applied_study_form_id]
 
     respond_to do |format|
       if @jury_form.save

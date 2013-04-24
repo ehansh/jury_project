@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130419173335) do
+ActiveRecord::Schema.define(:version => 20130424215134) do
 
   create_table "applied_study_forms", :force => true do |t|
     t.integer  "student_id"
@@ -20,14 +20,6 @@ ActiveRecord::Schema.define(:version => 20130419173335) do
     t.string   "public_performances"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
-  end
-
-  create_table "criteria", :force => true do |t|
-    t.string   "name"
-    t.float    "value"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
-    t.integer  "criteria_group_id"
   end
 
   create_table "criteria_groups", :force => true do |t|
@@ -50,11 +42,6 @@ ActiveRecord::Schema.define(:version => 20130419173335) do
   end
 
   add_index "instructors", ["remember_token"], :name => "index_instructors_on_remember_token"
-
-  create_table "instructors_students", :id => false, :force => true do |t|
-    t.integer "instructor_id"
-    t.integer "student_id"
-  end
 
   create_table "judges", :force => true do |t|
     t.integer  "jury_id"
@@ -93,6 +80,7 @@ ActiveRecord::Schema.define(:version => 20130419173335) do
     t.string   "final_assessment"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
+    t.integer  "measure_id"
   end
 
   create_table "measure_groups", :force => true do |t|
@@ -109,6 +97,7 @@ ActiveRecord::Schema.define(:version => 20130419173335) do
     t.integer  "measure_group_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.integer  "jury_form_id"
   end
 
   create_table "repertoires", :force => true do |t|

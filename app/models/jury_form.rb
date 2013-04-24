@@ -1,6 +1,6 @@
 class JuryForm < ActiveRecord::Base
-  attr_accessible :applied_study_form_id, :comments, :criteria_id, :final_assessment, :judge_id
+  attr_accessible :applied_study_form_id, :comments, :measure_id, :final_assessment, :judge_id, :measures
 
   belongs_to :judge
-  has_many :criteria
+  has_many :measures
 end

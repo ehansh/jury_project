@@ -5,11 +5,11 @@
     <%= f.label :measure_id, "Criteria:" %><br />
     <% cg = @jury.measure_group %>
     <% cg.measures.each do |criteria| %>
+      <p>
       <%= criteria.name %>:
-      <%= f.number_field :criteria_id %>
+      <input id="jury_form_measure_id" name="jury_form[measure_id][<%=criteria.id%>]" size="30" type="number">
+      </p>
     <% end %>
-    !!!for each score save the param to an array, then update the scores using that array!!!
-
     <p>
   </div>
 

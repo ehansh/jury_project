@@ -12,18 +12,18 @@
   <% end %>
 
   <div class="field">
-      <%= f.label :student_id, "Student" %> :
+      <%= f.label :student_id, "Student" %> 
       <%= f.collection_select :student_id, Student.all, :id, :name %>
   </div>
 
   <div class="field">
-      <%= f.label :judge_id, "Judge" %> :
+      <%= f.label :judge_id, "Judge" %> 
       <%= @judge.name %>
       <%= f.hidden_field :judge_id, value: @judge.id %>
   </div>
 
   <div class="field">
-      <%= f.label :measure_group_id, "Criteria" %> :
+      <%= f.label :measure_group_id, "Criteria" %> 
       <%= f.collection_select :measure_group_id, MeasureGroup.all, :id, :name %>
   </div>
 

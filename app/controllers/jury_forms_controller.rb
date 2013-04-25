@@ -53,6 +53,7 @@ class JuryFormsController < ApplicationController
     @jury_form.judge_id = params[:jury_form][:judge_id]
     @jury_form.final_assessment = params[:jury_form][:final_assessment]
     @jury_form.applied_study_form_id = params[:jury_form][:applied_study_form_id]
+    @jury_form.jury_id = params[:jury_form][:jury_id]
 
     respond_to do |format|
       if @jury_form.save

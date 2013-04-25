@@ -21,6 +21,15 @@
     <%= f.label :final_assessment %><br />
     <%= f.text_field :final_assessment %>
   </div>
+
+  <div class="field">
+    <%= f.hidden_field :judge_id, value: @jury.judge_id %>
+  </div>
+
+   <div class="field">
+    <%= f.hidden_field :jury_id, value: @jury.id %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Submit Jury"%>
   </div>

@@ -1,13 +1,19 @@
 <p id="notice"><%= notice %></p>
 
+<%= applied_study_information(@jury_form.jury.student) %>
+
 <p>
   <b>Judge:</b>
-   Judge's name will go here
+   <%= @jury_form.judge.name %>
 </p>
 
 <p>
   <b>Criteria:</b>
-  List of Criteria will go here
+  	<% @jury_form.measures.each do |measure| %>
+  		<p>
+  			<b><%= measure.name %></b>: <%= measure.score %>
+  		</p>
+  	<% end %>
 </p>
 
 <p>

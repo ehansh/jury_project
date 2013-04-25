@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130424215134) do
+ActiveRecord::Schema.define(:version => 20130425024403) do
 
   create_table "applied_study_forms", :force => true do |t|
     t.integer  "student_id"
@@ -42,6 +42,11 @@ ActiveRecord::Schema.define(:version => 20130424215134) do
   end
 
   add_index "instructors", ["remember_token"], :name => "index_instructors_on_remember_token"
+
+  create_table "instructors_students", :id => false, :force => true do |t|
+    t.integer "instructor_id"
+    t.integer "student_id"
+  end
 
   create_table "judges", :force => true do |t|
     t.integer  "jury_id"
@@ -81,6 +86,7 @@ ActiveRecord::Schema.define(:version => 20130424215134) do
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
     t.integer  "measure_id"
+    t.integer  "jury_id"
   end
 
   create_table "measure_groups", :force => true do |t|

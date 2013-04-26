@@ -1,3 +1,6 @@
+<% if current_user.is_a? Student %>
+  Sorry, you're not allowed to see this as a student!
+<% else %>
 <h1>Listing instructors</h1>
 
 <table>
@@ -21,3 +24,4 @@
 <br />
 
 <%= link_to 'New Instructor', new_instructor_path %>
+<% end %>

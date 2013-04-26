@@ -1,6 +1,10 @@
+<% if current_user.is_a? Student %>
+  Sorry, you're not allowed to see this as a student!
+<% else %>
 <h1>Editing judge</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Show', @judge %> |
 <%= link_to 'Back', judges_path %>
+<% end %>

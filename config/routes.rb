@@ -9,8 +9,6 @@ JuryProject::Application.routes.draw do
 
   resources :repertoires
 
-  root to: 'sessions#new'
-
   resources :students do
     resources :applied_study_forms
     resources :repertoires
@@ -27,6 +25,8 @@ JuryProject::Application.routes.draw do
   match '/signup',  to: 'students#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
+
+  root to: "sessions#new"
 
 
 

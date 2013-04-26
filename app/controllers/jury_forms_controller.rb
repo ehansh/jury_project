@@ -47,7 +47,11 @@ class JuryFormsController < ApplicationController
       puts measure.name 
       measure.score = m[1]
       puts measure.score
-      @jury_form.measures << measure
+      copied_measure = Measure.new
+      copied_measure.name   =   measure.name
+      copied_measure.score  =   measure.score
+      copied_measure.save
+      @jury_form.measures << copied_measure
     end
     @jury_form.comments = params[:jury_form][:comments]
     @jury_form.judge_id = params[:jury_form][:judge_id]

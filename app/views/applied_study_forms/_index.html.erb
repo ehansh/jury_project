@@ -14,8 +14,12 @@
     <td><%= applied_study_form.studies_and_scales %></td>
     <td><%= applied_study_form.public_performances %></td>
     <td><%= link_to 'Show', student_applied_study_form_path(@student, applied_study_form) %></td>
-    <td><%= link_to 'Edit', edit_student_applied_study_form_path(@student, applied_study_form) %></td>
-    <td><%= link_to 'Destroy', student_applied_study_form_path(@student, applied_study_form), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td>
+      <% if current_user.is_a? Judge %><td></td>
+      <% else %><%= link_to 'Edit', edit_student_applied_study_form_path(@student, applied_study_form) %></td>
+      <% end %>
+    <td><% if current_user.is_a? Judge %><td></td>
+    <% else %><%= link_to 'Destroy', student_applied_study_form_path(@student, applied_study_form), method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
   </tr>
 <% end %>
 </table>

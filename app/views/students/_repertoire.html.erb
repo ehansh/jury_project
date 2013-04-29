@@ -12,6 +12,9 @@
 	      </div>
 	    </div>
 	  </div>
+	  <% if current_user.is_a? Judge %>
+
+      <% else %>
 	  <div class="accordion-group">
 	    <div class="accordion-heading">
 	      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
@@ -53,5 +56,6 @@
 	      </div>
 	    </div>
 	  </div>
+	  <% end %>
 	</div>
 </div>

@@ -6,7 +6,11 @@
       <li class="active"><a href="#home" data-toggle="tab">Student Information</a></li>
       <li><a href="#repertoire" data-toggle="tab">Repertoire</a></li>
       <li><a href="#applied_study_form" data-toggle="tab">Applied Study Forms</a></li>
+      <% if current_user.is_a? Judge %>
+
+      <% else %>
       <li><a href="#juries" data-toggle="tab">Juries</a></li>
+      <% end %>
    </ul>
   </div>
 
@@ -24,9 +28,15 @@
       <%= render 'applied_study_forms/index' %>
     </div>
 
+    <% if current_user.is_a? Judge %>
+
+    <% else %>
+
     <div class="tab-pane" id="juries">
       <%= render 'juries_info' %>
     </div>
+
+    <% end %>
 
   </div>
 </div>

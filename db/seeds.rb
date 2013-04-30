@@ -10,16 +10,58 @@ MeasureGroup.delete_all
 Measure.delete_all
 Jury.delete_all
 
-keyboard = MeasureGroup.create({name: 'Keyboard'})
-vocal = MeasureGroup.create({name: 'Vocal'})
+#creation of MeasureGroups
+general = 		MeasureGroup.create({name: 'General'})
+keyboard = 		MeasureGroup.create({name: 'Keyboard'})
+instrumental = 	MeasureGroup.create({name: 'Instrumental'})
+vocal = 		MeasureGroup.create({name: 'Vocal'})
 
-first = Measure.create(name: 'Use of Pedal' )
-last = Measure.create(name: 'Pitch' )
+#General Measures
+dynamics = 			Measure.create(name: 'Dynamics' )
+rhythm = 			Measure.create(name: 'Rhythm' )
+phrasing = 			Measure.create(name: 'Phrasing' )
+interpertation = 	Measure.create(name: 'Interpertation' )
+tone = 				Measure.create(name: 'Tone' )
 
-keyboard.measure_id = first.id
-puts "#{keyboard.measure_id}"
-keyboard.measures << first
-keyboard.measures << last
+general.measures << [tone, dynamics, rhythm, phrasing, interpertation]
 
-puts keyboard.measures.first.name
+general.measures.each do |measure|
+	key_measure 			= Measure.create(name: measure.name)
+	instrumental_measure 	= Measure.create(name: measure.name)
+	vocal_measure 			= Measure.create(name: measure.name)
 
+	keyboard.measures 		<< key_measure
+	instrumental.measures 	<< instrumental_measure
+	vocal.measures 			<< vocal_measure 
+end
+
+general.delete
+
+#Keyboard Measures
+
+articulation = 	Measure.create(name: 'Articulation' )
+technique = 	Measure.create(name: 'Technique' )
+memory = 		Measure.create(name: 'Memory' )
+scales =		Measure.create(name: 'Scales' )
+
+keyboard.measures << [articulation, technique, memory, scales]
+
+#Instrumental Measures
+articulation_instrumental = Measure.create(name: 'Articulation' )
+vibrato = 					Measure.create(name: 'Vibrato' )
+breathing = 				Measure.create(name: 'Breathing' )
+intonation = 				Measure.create(name: 'Intonation' )
+ensemble =					Measure.create(name: 'Ensemble' )
+scales_instrumenta = 		Measure.create(name: 'Scales')
+
+instrumental.measures << [articulation_instrumental, vibrato, breathing, intonation, ensemble, scales_instrumenta]
+
+#Vocal Measures
+dictation =			Measure.create(name: 'Dictation' )
+vibrato_vocal = 	Measure.create(name: 'Vibrato' )
+breathing_vocal = 	Measure.create(name: 'Breathing' )
+intonation_vocal =	Measure.create(name: 'Intonation' )
+ensemble_vocal =	Measure.create(name: 'Ensemble' )
+memory_vocal =		Measure.create(name: 'Memory' )
+
+vocal.measures << [dictation, vibrato_vocal, breathing_vocal, intonation_vocal, ensemble_vocal, memory_vocal]

@@ -1,37 +1,48 @@
 <%= form_for(@jury_form) do |f| %>
-
-
-  <div class="field">
-    <%= f.label :measure_id, "Criteria:" %><br />
-    <% cg = @jury.measure_group %>
-    <% cg.measures.each do |criteria| %>
-      <p>
-      <%= criteria.name %>:
-      <input id="jury_form_measure_id" name="jury_form[measure_id][<%=criteria.id%>]" size="30" type="number">
-      </p>
-    <% end %>
-    <p>
+<div class="row">
+  <div class="span6">
+    <div class="field">
+      Criteria: <%= @jury.measure_group.name %> <br />
+      <% cg = @jury.measure_group %>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
+      <% cg.measures.each do |criteria| %>
+        <tr>
+          <td><%= criteria.name %>:</td>
+          <td><input id="jury_form_measure_id" name="jury_form[measure_id][<%=criteria.id%>]" size="30" type="number"></td>
+        </tr>
+      <% end %>
+      </table>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :comments %><br />
-    <%= f.text_field :comments %>
-  </div>
-  <div class="field">
-    <%= f.label :final_assessment %><br />
-    <%= f.text_field :final_assessment %>
-  </div>
+  <div class="span6">
+    <div class="field">
+      <%= f.label :comments %><br />
+      <%= f.text_area :comments %>
+    </div>
+    <div class="field">
+      <%= f.label :final_assessment %><br />
+      <%= f.text_field :final_assessment %>
+    </div>
 
-  <div class="field">
-    <%= f.hidden_field :judge_id, value: @jury.judge_id %>
-  </div>
+    <div class="field">
+      <%= f.hidden_field :judge_id, value: @jury.judge_id %>
+    </div>
 
-   <div class="field">
-    <%= f.hidden_field :jury_id, value: @jury.id %>
-  </div>
+     <div class="field">
+      <%= f.hidden_field :jury_id, value: @jury.id %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Submit Jury"%>
+    <div class="actions">
+      <%= f.submit "Submit Jury"%>
+    </div>
   </div>
+</div>
 
 <% end %>
+
+<%= link_to 'Back', @jury_form.judge %>

@@ -25,9 +25,9 @@
     <b>Course Number:</b>
     <%= @student.course_num %>
   </p>
-  <% if current_user.is_a? Judge %>
-
+  <% if current_user.is_a? Student %>
+    <%= link_to 'Edit', edit_student_path(@student) %>
   <% else %>
-  <%= link_to 'Edit', edit_student_path(@student) %>
+  
   <% end %>
 </div>

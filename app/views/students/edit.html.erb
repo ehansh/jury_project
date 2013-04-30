@@ -1,6 +1,11 @@
-<h1>Editing student</h1>
+<% if current_user.is_a? Student %>
+	<h1>Editing student</h1>
 
-<%= render 'form' %>
+	<%= render 'form' %>
 
-<%= link_to 'Show', @student %> |
-<%= link_to 'Back', students_path %>
+	<%= link_to 'Show', @student %> |
+	<%= link_to 'Back', students_path %>
+
+<% else %>
+	Judges and Students cannot edit students!
+<% end %>

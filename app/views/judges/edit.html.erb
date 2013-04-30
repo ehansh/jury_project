@@ -1,5 +1,7 @@
 <% if current_user.is_a? Student %>
   Sorry, you're not allowed to see this as a student!
+<% elsif current_user.is_a? Instructor %>
+	Sorry, you're not allowed to see this as an instructor!
 <% else %>
 <h1>Editing judge</h1>
 

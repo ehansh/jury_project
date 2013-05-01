@@ -3,8 +3,8 @@
 <table>
   <tr>
     <th>Studies and Scales | </th> 
-    <th>Public Performances </th>
-    <th></th>
+    <th>Public Performances | </th>
+    <th>Repertoire | </th>
     <th></th>
     <th></th>
   </tr>
@@ -13,13 +13,11 @@
   <tr>
     <td><%= applied_study_form.studies_and_scales %></td>
     <td><%= applied_study_form.public_performances %></td>
-    <td><%= link_to 'Show', student_applied_study_form_path(@student, applied_study_form) %></td>
+    <td><%= Repertoire.find(applied_study_form.repertoire_id).title %></td>
     <td>
       <% if current_user.is_a? Judge %><td></td>
       <% else %><%= link_to 'Edit', edit_student_applied_study_form_path(@student, applied_study_form) %></td>
       <% end %>
-    <td><% if current_user.is_a? Judge %><td></td>
-    <% else %><%= link_to 'Destroy', student_applied_study_form_path(@student, applied_study_form), method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
   </tr>
 <% end %>
 </table>

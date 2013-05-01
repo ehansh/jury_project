@@ -12,9 +12,9 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :student_id %><br />
-    <%= f.collection_select :student_id, Student.all, :id, :name %>
+      <%= f.hidden_field :student_id, value: @student.id %>
   </div>
+
   <div class="field">
     <%= f.label :repertoire_id %><br />
     <%= f.collection_select :repertoire_id, Repertoire.find(@student.repertoires), :id, :title %>
@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :public_performances %><br />
-    <%= f.text_field :public_performances %>
+    <%= f.text_area :public_performances %>
   </div>
   <div class="actions">
     <%= f.submit %>

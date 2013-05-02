@@ -23,7 +23,7 @@
 	    </div>
 	    <div id="collapseTwo" class="accordion-body collapse">
 	      <div class="accordion-inner">
-	        <%= form_for (@repertoire) do |f| %>
+	        <%= form_for (@repertoire), remote: true do |f| %>
 				<div class="field">
 					<%= f.label :title %><br />
 		    		<%= f.text_field :title %>

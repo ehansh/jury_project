@@ -49,6 +49,7 @@ class RepertoiresController < ApplicationController
 
         format.html { redirect_to @student, notice: 'Repertoire was successfully created.' }
         format.json { render json: @student, status: :created, location: @repertoire }
+        format.js
       else
         format.html { render action: "new" }
         format.json { render json: @repertoire.errors, status: :unprocessable_entity }
@@ -82,6 +83,7 @@ class RepertoiresController < ApplicationController
     respond_to do |format|
       format.html { redirect_to @student }
       format.json { head :no_content }
+      format.js
     end
   end
 end

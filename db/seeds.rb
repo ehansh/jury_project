@@ -9,6 +9,7 @@
 MeasureGroup.delete_all
 Measure.delete_all
 Jury.delete_all
+AppliedStudyForm.delete_all
 
 #creation of MeasureGroups
 general = 		MeasureGroup.create({name: 'General'})

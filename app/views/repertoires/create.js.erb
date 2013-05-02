@@ -1,0 +1,1 @@
+$('#repertoire_table').append('<tr id="remove_repertoire_<%= @repertoire.id%>"><td> <%= @repertoire.title %> by <%= @repertoire.composer %> Duration: <%= @repertoire.duration %></td><td><%= link_to 'Remove', @repertoire, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td></tr>');

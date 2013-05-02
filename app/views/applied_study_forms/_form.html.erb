@@ -17,7 +17,7 @@
 
   <div class="field">
     <%= f.label :repertoire_id %><br />
-    <%= f.collection_select :repertoire_id, Repertoire.find(@student.repertoires), :id, :title %>
+    <%= f.collection_select :repertoire_id, Repertoire.find(:all, @student.repertoires), :id, :title %>
   </div>
   <div class="field">
     <%= f.label :studies_and_scales %><br />

@@ -1,5 +1,5 @@
 class Judge < ActiveRecord::Base
-  attr_accessible :email, :name, :password, :password_confirmation, :jury_id
+  attr_accessible :email, :name, :password, :password_confirmation, :jury_id, :remember_token
   has_secure_password
 
   has_and_belongs_to_many :juries

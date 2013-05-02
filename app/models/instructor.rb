@@ -1,5 +1,5 @@
 class Instructor < ActiveRecord::Base
-  attr_accessible :email, :name, :password, :password_confirmation, :student_id
+  attr_accessible :email, :name, :password, :password_confirmation, :student_id, :remember_token
   has_secure_password
 
   before_save { self.email.downcase! }

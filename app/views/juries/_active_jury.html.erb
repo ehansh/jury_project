@@ -26,7 +26,8 @@
     </div>
     <div class="field">
       <%= f.label :final_assessment %><br />
-      <%= f.text_field :final_assessment %>
+      <% options = options_for_select([['Unsatisfactory Progress at this level', 'Unsatisfactory Progress at this level'], ['Continue study at this level', 'Continue study at this level'],['Advance to study at next level', 'Advance to study at next level'],['All jury levels for degree completed', 'All jury levels for degree completed']], 4) %>
+    <%= f.select :final_assessment, options %>
     </div>
 
     <div class="field">
@@ -35,6 +36,10 @@
 
      <div class="field">
       <%= f.hidden_field :jury_id, value: @jury.id %>
+    </div>
+
+    <div class="field">
+       <%= f.hidden_field :applied_study_form_id, value: @jury.student.applied_study_forms.last.id %>
     </div>
 
     <div class="actions">

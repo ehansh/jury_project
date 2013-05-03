@@ -22,16 +22,17 @@
   </div>
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
   </div>
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.text_field :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
   </div>
 
   <div class="field">
     <%= f.label :major %><br />
-    <%= f.text_field :major %>
+    <% options = options_for_select([['Music (B.A.)', 'Music (B.A.)'], ['Music Performance', 'Music Performance'], ['Music Education', 'Music Education'],['Music Industry', 'Music Industry'], ['Music (Other)', 'Music (Other)']], 5) %>
+    <%= f.select :major, options %>
   </div>
   <div class="field">
     <%= f.label :graduation_year %><br />

@@ -45,7 +45,8 @@ class JudgesController < ApplicationController
 
     respond_to do |format|
       if @judge.save
-        format.html { redirect_to root_path, notice: 'Judge was successfully created.' }
+        sign_in(@judge)
+        format.html { redirect_to @judge, notice: 'Judge was successfully created.' }
         format.json { render json: @judge, status: :created, location: @judge }
       else
         format.html { render action: "new" }

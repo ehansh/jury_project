@@ -6,7 +6,6 @@ module JuriesHelper
 			out << "This student has no applied study forms"
 		else
 			applied_study_form = student.applied_study_forms.last
-			repertoire = Repertoire.find(applied_study_form.repertoire_id)
 
 			out << "<b>Studies and Scales: </b>"
 			out << applied_study_form.studies_and_scales

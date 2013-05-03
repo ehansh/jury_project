@@ -6,7 +6,7 @@
     <% juries.jury_forms.each do |jury_form| %>
     <div class="accordion-heading">
       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%=dummyInt%>">
-        <b> Jury judged by jury_form.judge.name %> </b>
+        <b> Jury judged by <%= jury_form.judge.name %> </b>
       </a>
     </div>
     <div id="collapse<%=dummyInt%>" class="accordion-body collapse">

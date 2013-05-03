@@ -46,13 +46,15 @@ class AppliedStudyFormsController < ApplicationController
   def create
     @applied_study_form = AppliedStudyForm.new(params[:applied_study_form])
 
-
     respond_to do |format|
       if @applied_study_form.save
         @student = Student.find(@applied_study_form.student_id)
-        @applied_study_form.repertoires << Repertoire.find(@applied_study_form.repertoire_id)
+        @repertoire = Repertoire.find(@applied_study_form.repertoire_id)
+        @applied_study_form.repertoires << @repertoire
+
         format.html { redirect_to @student, notice: 'Applied study form was successfully created.' }
         format.json { render json: @applied_study_form, status: :created, location: @applied_study_form }
+        format.js   
       else
         format.html { render action: "new" }
         format.json { render json: @applied_study_form.errors, status: :unprocessable_entity }
@@ -64,12 +66,16 @@ class AppliedStudyFormsController < ApplicationController
   # PUT /applied_study_forms/1.json
   def update
     @applied_study_form = AppliedStudyForm.find(params[:id])
-    @student = Student.find(params[:student_id])
 
     respond_to do |format|
       if @applied_study_form.update_attributes(params[:applied_study_form])
+        @student = Student.find(params[:student_id])
+        @repertoire = Repertoire.find(@applied_study_form.repertoire_id)
+        @applied_study_form.repertoires << @repertoire
+        
         format.html { redirect_to student_applied_study_form_path(@student, @applied_study_form), notice: 'Applied study form was successfully updated.' }
         format.json { head :no_content }
+        format.js
       else
         format.html { render action: "edit" }
         format.json { render json: @applied_study_form.errors, status: :unprocessable_entity }

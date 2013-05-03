@@ -18,7 +18,12 @@
   </div>
   <div class="field">
     <%= f.label :final_assessment %><br />
-    <%= f.text_field :final_assessment %>
+    <% options = options_for_select([
+      ['Unsatisfactory Progress at this level', 'Unsatisfactory Progress at this level'], 
+      ['Continue study at this level', 'Continue study at this level',
+      ['Advance to study at next level', 'Advance to study at next level'],
+      ['All jury levels for degree completed', 'All jury levels for degree completed']], 4) %>
+    <%= f.select :final_assessment, options %>
   </div>
   <div class="actions">
     <%= f.submit %>

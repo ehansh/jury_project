@@ -61,7 +61,7 @@ class JuryFormsController < ApplicationController
 
     respond_to do |format|
       if @jury_form.save
-        format.html { redirect_to @jury_form, notice: 'Jury form was successfully created.' }
+        format.html { redirect_to @jury_form.judge, notice: 'Jury form was successfully created.' }
         format.json { render json: @jury_form, status: :created, location: @jury_form }
       else
         format.html { render action: "new" }

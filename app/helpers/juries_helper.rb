@@ -18,10 +18,14 @@ module JuriesHelper
 
 			out << "</br>"
 
-			out << "<b>Repotoire: </b>"
-			out << "#{repertoire.title} by #{repertoire.composer}. Duration:#{repertoire.duration}"
-
-			out << "</div>"
+			out << %Q[<table class="table table-striped table-bordered" id="repertoire_table">
+				<tr>
+	        		<th>Repotoire</th>
+	        		<th></th>]
+	        		applied_study_form.repertoires.each do |repertoire|
+	        			out << repertoire_table_item(repertoire)
+	        		end
+			out << "</tr></table></div>"
 		end
 		out.html_safe
 	end

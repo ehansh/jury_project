@@ -44,7 +44,8 @@ class InstructorsController < ApplicationController
 
     respond_to do |format|
       if @instructor.save
-        format.html { redirect_to root_path, notice: 'Instructor was successfully created.' }
+        sign_in(@instructor)
+        format.html { redirect_to @instructor, notice: 'Instructor was successfully created.' }
         format.json { render json: @instructor, status: :created, location: @instructor }
       else
         format.html { render action: "new" }
@@ -64,10 +65,11 @@ class InstructorsController < ApplicationController
         @student = Student.find(@instructor.student_id)
         @instructor.students << @student
         #Debug message
-        puts "***name #{@student.name}, id: #{@student.id}, instructor id: #{@student.instructor_id}***"
+        puts "***name #{@instructor.students.last.name}, id: #{@instructor.students.last.id}, instructor id: #{@instructor.students.last.instructor_id}***"
 
         format.html { redirect_to @instructor, notice: 'Instructor was successfully updated.' }
         format.json { head :no_content }
+        format.js
       else
         format.html { render action: "edit" }
         format.json { render json: @instructor.errors, status: :unprocessable_entity }

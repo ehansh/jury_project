@@ -43,11 +43,6 @@ ActiveRecord::Schema.define(:version => 20130425024403) do
 
   add_index "instructors", ["remember_token"], :name => "index_instructors_on_remember_token"
 
-  create_table "instructors_students", :id => false, :force => true do |t|
-    t.integer "instructor_id"
-    t.integer "student_id"
-  end
-
   create_table "judges", :force => true do |t|
     t.integer  "jury_id"
     t.datetime "created_at",            :null => false
@@ -139,14 +134,5 @@ ActiveRecord::Schema.define(:version => 20130425024403) do
 
   add_index "students", ["email"], :name => "index_students_on_email", :unique => true
   add_index "students", ["remember_token"], :name => "index_students_on_remember_token"
-
-  create_table "users", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password"
-    t.string   "password_confirmation"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
-  end
 
 end

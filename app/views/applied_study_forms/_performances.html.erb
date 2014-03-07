@@ -1,0 +1,28 @@
+<div>
+<table id="performance_table" class="table table-striped table-bordered">
+  
+  <tr><th>Performances</th></tr>
+  <% if @applied_study_form.performances.first.nil? %>
+    <tr id="starting_row"><td><%= @student.name%> has not added any performances</td></tr>
+  <% else %>
+    <% @applied_study_form.performances.each do |performance| %>
+      <tr><td><%= performance.name %></td></tr>
+    <% end %>
+  <% end %>
+</table>
+
+
+<%= form_for @performance, remote: true do |f| %>
+  <div class="field">
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+      <%= f.hidden_field :applied_study_form_id, value: @applied_study_form.id %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit name: "Add performance" %>
+  </div>
+<% end %>
+</div>

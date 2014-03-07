@@ -23,10 +23,9 @@
     <%= f.label :studies_and_scales %><br />
     <%= f.text_field :studies_and_scales %>
   </div>
-  <div class="field">
-    <%= f.label :public_performances %><br />
-    <%= f.text_area :public_performances %>
-  </div>
+
+  <%= render 'performances' %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

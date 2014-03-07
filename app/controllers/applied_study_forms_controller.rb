@@ -14,6 +14,7 @@ class AppliedStudyFormsController < ApplicationController
   # GET /applied_study_forms/1
   # GET /applied_study_forms/1.json
   def show
+    @performance = Performance.new
     @applied_study_form = AppliedStudyForm.find(params[:id])
     @student = Student.find(params[:student_id])
 
@@ -28,6 +29,7 @@ class AppliedStudyFormsController < ApplicationController
   def new
     @applied_study_form = AppliedStudyForm.new
     @student = Student.find(params[:student_id])
+    @performance = Performance.new
 
     respond_to do |format|
       format.html # new.html.erb

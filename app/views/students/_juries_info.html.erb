@@ -1,3 +1,7 @@
+<%if @student.juries.first.nil? %>
+  <%= @student.name %> has not had a jury. 
+<%else%>
+
 <% dummyInt = 0 %>
 
 <div class="accordion" id="accordion2">
@@ -19,4 +23,5 @@
     <% end %>
   </div>
 </div>
+<%end%>
 

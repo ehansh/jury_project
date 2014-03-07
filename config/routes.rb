@@ -1,4 +1,5 @@
 JuryProject::Application.routes.draw do
+  
   resources :measure_groups
 
   resources :criteria_groups
@@ -8,9 +9,12 @@ JuryProject::Application.routes.draw do
   resources :jury_forms
 
   resources :repertoires
+  resources :performances
 
   resources :students do
-    resources :applied_study_forms
+    resources :applied_study_forms do
+      resources :performances
+    end
     resources :repertoires
   end
 

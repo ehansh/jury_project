@@ -1,26 +1,29 @@
 <h1>Listing Applied Study Forms for <%= @student.name %> </h1>
 
+<% if @applied_study_forms.first.nil? %>
+<p>
+  <%=@student.name%> has no applied stufy forms.
+</p>
+<%else%>
 <table>
   <tr>
     <th>Studies and Scales | </th> 
-    <th>Public Performances | </th>
     <th>Repertoire | </th>
     <th></th>
     <th></th>
   </tr>
-
-<% @applied_study_forms.each do |applied_study_form| %>
-  <tr>
-    <td><%= applied_study_form.studies_and_scales %></td>
-    <td><%= applied_study_form.public_performances %></td>
-    <td><%= applied_study_form.repertoires.first.title rescue 'no repertoires were entered' %></td>
-    <td>
-      <% if current_user.is_a? Judge %><td></td>
-      <% else %><%= link_to 'Details', student_applied_study_form_path(@student, applied_study_form) %></td>
-      <% end %>
-  </tr>
-<% end %>
+  <% @applied_study_forms.each do |applied_study_form| %>
+    <tr>
+      <td><%= applied_study_form.studies_and_scales %></td>
+      <td><%= applied_study_form.repertoires.first.title rescue 'no repertoires were entered' %></td>
+      <td>
+        <% if current_user.is_a? Judge %><td></td>
+        <% else %><%= link_to 'Details', student_applied_study_form_path(@student, applied_study_form) %></td>
+        <% end %>
+    </tr>
+  <% end %>
 </table>
+<% end %>
 
 <br />
 

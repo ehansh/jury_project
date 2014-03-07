@@ -1,6 +1,7 @@
 class AppliedStudyForm < ActiveRecord::Base
-  attr_accessible :public_performances, :repertoire_id, :student_id, :studies_and_scales
+  attr_accessible :repertoire_id, :student_id, :studies_and_scales
 
   belongs_to :student
   has_many :repertoires
-end
+  has_many :performances
+ end

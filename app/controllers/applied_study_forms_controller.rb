@@ -51,10 +51,8 @@ class AppliedStudyFormsController < ApplicationController
     respond_to do |format|
       if @applied_study_form.save
         @student = Student.find(@applied_study_form.student_id)
-        @repertoire = Repertoire.find(@applied_study_form.repertoire_id)
-        @applied_study_form.repertoires << @repertoire
 
-        format.html { redirect_to @student, notice: 'Applied study form was successfully created.' }
+        format.html { redirect_to [@student, @applied_study_form], notice: 'You\'re almost done!  We just need you to add your repertoire and performances!.' }
         format.json { render json: @applied_study_form, status: :created, location: @applied_study_form }
         format.js   
       else

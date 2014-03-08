@@ -53,12 +53,13 @@ class JuryFormsController < ApplicationController
       copied_measure.save
       @jury_form.measures << copied_measure
     end
+
     @jury_form.comments = params[:jury_form][:comments]
     @jury_form.judge_id = params[:jury_form][:judge_id]
     @jury_form.final_assessment = params[:jury_form][:final_assessment]
     @jury_form.applied_study_form_id = params[:jury_form][:applied_study_form_id]
     @jury_form.jury_id = params[:jury_form][:jury_id]
-
+    
     respond_to do |format|
       if @jury_form.save
         format.html { redirect_to @jury_form.judge, notice: 'Jury form was successfully created.' }

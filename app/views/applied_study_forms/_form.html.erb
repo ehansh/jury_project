@@ -16,17 +16,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :repertoire_id %><br />
-    <%= f.collection_select :repertoire_id, Repertoire.find(:all, @student.repertoires), :id, :title %>
-  </div>
-  <div class="field">
     <%= f.label :studies_and_scales %><br />
     <%= f.text_field :studies_and_scales %>
   </div>
-
-  <%= render 'performances' %>
 
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+

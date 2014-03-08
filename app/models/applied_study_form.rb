@@ -4,4 +4,6 @@ class AppliedStudyForm < ActiveRecord::Base
   belongs_to :student
   has_many :repertoires
   has_many :performances
+
+  
  end

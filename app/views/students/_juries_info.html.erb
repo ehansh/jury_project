@@ -8,7 +8,7 @@
   <div class="accordion-group">
   	<% @student.juries.each do |juries| %>
     <% juries.jury_forms.each do |jury_form| %>
-    <div class="accordion-heading">
+    <%= create_progress_div(juries) %>
       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%=dummyInt%>">
         <b> Jury judged by <%= jury_form.judge.name %> </b>
       </a>

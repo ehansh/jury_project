@@ -1,45 +1,25 @@
 <div id="repertoire_info">
-	<div class="accordion" id="accordion2">
-	  <div class="accordion-group">
-	    <div class="accordion-heading">
-	      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-	        <b> Repertoire Table </b>
-	      </a>
-	    </div>
-	    <div id="collapseOne" class="accordion-body collapse in">
-	      <div class="accordion-inner">
-	        <table class="table table-striped table-bordered" id="repertoire_table">
-				<tr>
-	        		<th>Repotoire</th>
-	        		<th></th>
-	        		<% @applied_study_form.repertoires.each do |repertoire| %>
-	        			<%=repertoire_table_item(repertoire) %>
-	        		<% end %>
-	      		</tr>
-	      	</table>
-	      </div>
-	    </div>
-	  <div class="accordion-group">
-	    <div class="accordion-heading">
-	      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-	        <b> Add Repertoire </b>
-	      </a>
-	    </div>
-	    <div id="collapseTwo" class="accordion-body collapse">
-	      <div class="accordion-inner">
-	        <%= form_for ([@student, @applied_study_form]), remote: true, action: "update" do |f| %>
-			  	<div class="field">
-					<%= f.label :repertoire_id %><br />
-					<%= f.collection_select :repertoire_id, Repertoire.find(:all, @student.repertoires), :id, :title %>
-					<%= f.hidden_field :student_id, value: @student.id %>
-			 	</div>
+    <table class="table table-striped table-bordered" id="repertoire_table">
+		<tr>
+    		<th>Repertoire</th>
+    		<% if @applied_study_form.repertoires.first.nil? %>
+    			<tr id="first_row"><td>No repertoire has been added yet.</td></tr>
+    		<%else%>
+    		<% @applied_study_form.repertoires.each do |repertoire| %>
+    			<%=repertoire_table_item(repertoire) %>
+    		<% end %>
+    		<% end %>
+  		</tr>
+  	</table>
 
-				<div class="actions">
-		    		<%= f.submit %>
-		  		</div>
-			<% end %> 
-	      </div>
-	    </div>
-	  </div>
-	</div>
+    <b> Add Repertoire </b>
+    <%= form_for ([@student, @applied_study_form]), remote: true, action: "update" do |f| %>
+	  	<div class="field">
+			<%= f.collection_select :repertoire_id, Repertoire.find(:all, @student.repertoires), :id, :title %>
+			<%= f.hidden_field :student_id, value: @student.id %>
+	 	</div>
+		<div class="actions">
+    		<%= f.submit value: "Add"%>
+  		</div>
+	<% end %> 
 </div>

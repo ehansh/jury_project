@@ -2,9 +2,9 @@
 <div class="row">
   <div class="span6">
     <div class="field">
-      <b>Criteria:</b> <%= @jury.measure_group.name %> <br />
+      <h3>Criteria: <%= @jury.measure_group.name %> </h3> <br />
       <% cg = @jury.measure_group %>
-      <table>
+      <table class ="table">
         <tr>
           <th>Name</th>
           <th>Score</th>
@@ -12,7 +12,25 @@
       <% cg.measures.each do |criteria| %>
         <tr>
           <td><%= criteria.name %>:</td>
-          <td><input id="jury_form_measure_id" name="jury_form[measure_id][<%=criteria.id%>]" size="30" type="number"></td>
+          <td>
+          <div class="btn-group" data-toggle="buttons-radio">
+              <input id="jury_form_measure_id_first_<%=criteria.id%>" type="radio" style="display:none;" value="1" name="jury_form[measure_id][<%=criteria.id%>]">
+              <label for="jury_form_measure_id_first_<%=criteria.id%>" class="btn btn-default  ">1</label>
+              
+              <input id="jury_form_measure_id_second_<%=criteria.id%>" type="radio" style="display:none;" value="2" name="jury_form[measure_id][<%=criteria.id%>]">
+              <label for="jury_form_measure_id_second_<%=criteria.id%>" class="btn btn-default  ">2</label>
+
+              <input id="jury_form_measure_id_third_<%=criteria.id%>" type="radio" style="display:none;" value="3" name="jury_form[measure_id][<%=criteria.id%>]">
+              <label for="jury_form_measure_id_third_<%=criteria.id%>" class="btn btn-default  ">3</label>
+
+              <input id="jury_form_measure_id_fourth_<%=criteria.id%>" type="radio" style="display:none;" value="4" name="jury_form[measure_id][<%=criteria.id%>]">
+              <label for="jury_form_measure_id_fourth_<%=criteria.id%>" class="btn btn-default  ">4</label>
+
+              <input id="jury_form_measure_id_fifth_<%=criteria.id%>" type="radio" style="display:none;" value="5" name="jury_form[measure_id][<%=criteria.id%>]">
+              <label for="jury_form_measure_id_fifth_<%=criteria.id%>" class="btn btn-default  ">5</label>
+            
+            </div>
+            </td>
         </tr>
       <% end %>
       </table>
@@ -21,11 +39,11 @@
 
   <div class="span6">
     <div class="field">
-      <%= f.label :comments %><br />
+      <h3>Comments</h3><br />
       <%= f.text_area :comments %>
     </div>
     <div class="field">
-      <%= f.label :final_assessment %><br />
+      <h4>Final Assessment</h4><br />
       <% options = options_for_select([['Unsatisfactory Progress at this level', 'Unsatisfactory Progress at this level'], ['Continue study at this level', 'Continue study at this level'],['Advance to study at next level', 'Advance to study at next level'],['All jury levels for degree completed', 'All jury levels for degree completed']], 4) %>
     <%= f.select :final_assessment, options %>
     </div>

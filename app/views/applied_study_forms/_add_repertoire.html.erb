@@ -15,7 +15,7 @@
     <b> Add Repertoire </b>
     <%= form_for ([@student, @applied_study_form]), remote: true, action: "update" do |f| %>
 	  	<div class="field">
-			<%= f.collection_select :repertoire_id, Repertoire.find(:all, @student.repertoires), :id, :title %>
+			<%= f.collection_select :repertoire_id, @student.repertoires, :id, :title %>
 			<%= f.hidden_field :student_id, value: @student.id %>
 	 	</div>
 		<div class="actions">

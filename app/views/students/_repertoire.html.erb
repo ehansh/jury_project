@@ -1,22 +1,26 @@
 <div id="repertoire_info">
-	<div class="accordion" id="accordion2">
+	<div class="accordion" id="accordion1">
 	  <div class="accordion-group">
 	    <div class="accordion-heading">
-	      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+	      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">
 	        <b> Repertoire Table </b>
 	      </a>
 	    </div>
-	    <div id="collapseOne" class="accordion-body collapse in">
+	    <div id="collapseOne" class="accordion-body collapse">
 	      <div class="accordion-inner">
 	        <%= repertoire_table(@student) %>
 	      </div>
 	    </div>
 	  </div>
-	  <% if current_user.is_a? Judge %>
+	 </div>
 
-      <% else %>
+	 <% if current_user.is_a? Judge %>
+
+	 <% else %>
+
+	 <div class="accordion" id="accordion2" >
 	  <div class="accordion-group">
-	    <div class="accordion-heading">
+	    <div class="accordion-inner">
 	      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
 	        <b> Add Repertoire </b>
 	      </a>

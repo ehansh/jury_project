@@ -18,4 +18,4 @@
   	<%= render 'performances' %>
 </p>
 
-<%= link_to 'Back', @student %>
+<%= button_to "Finished", @student, id: "finished_button", class: "btn btn-primary", method: :get %>

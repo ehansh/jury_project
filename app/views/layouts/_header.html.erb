@@ -1,7 +1,11 @@
 <header class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container" id="header">
-			<%= link_to "Saint Mary's Music Deptarment Jury app", root_path, id: "logo" %>
+			<% if signed_in? %>
+				<%= link_to "Saint Mary's Music Deptarment Jury app", current_user, id: "logo" %>
+			<% else %>
+				<%= link_to "Saint Mary's Music Deptarment Jury app", root_path, id: "logo" %>
+			<% end %>
 			<nav>
 				<ul class="nav pull-right">
 					<% if signed_in? %>

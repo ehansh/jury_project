@@ -8,7 +8,7 @@ module StudentsHelper
 	      		</tr>
 	  	]
 	  	if student.repertoires.first.nil? 
-			out << "<tr><td> This student has no repertoire </td></tr>"
+			out << '<tr id="first"><td> This student has no repertoire </td></tr>'
 		else
 			student.repertoires.each do |repertoire|
 				link_info = link_to 'Remove', repertoire, method: :delete, data: { confirm: 'Are you sure?' }, remote: true

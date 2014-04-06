@@ -26,7 +26,7 @@
   	<b>Email:</b>
  		 <%= @judge.email %>
 	</p>
-	<%= link_to 'Edit', edit_judge_path(@judge) %>
+	<%= button_to 'Edit', edit_judge_path(@judge), method: 'get' %>
 
    </div>
 

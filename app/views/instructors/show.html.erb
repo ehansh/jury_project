@@ -15,7 +15,7 @@
 
     <div class="tab-pane active" id="home">
       <%= render 'info' %>
-      <%= link_to 'Edit', edit_instructor_path(@instructor) %>
+      <%= button_to 'Edit', edit_instructor_path(@instructor), method: 'get' %>
     </div>
 
     <div class="tab-pane" id="students">

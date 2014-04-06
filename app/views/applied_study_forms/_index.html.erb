@@ -1,4 +1,4 @@
-<h1>Listing Applied Study Forms for <%= @student.name %> </h1>
+<h1>Applied Study Forms for <%= @student.name %> </h1>
 
 <% if @applied_study_forms.first.nil? %>
 <p>
@@ -54,4 +54,4 @@
 
 <br />
 
-<%= link_to 'New Applied study form', new_student_applied_study_form_path(@student) %>
+<%= button_to 'New Applied Study Form', new_student_applied_study_form_path(@student), class: 'btn btn-primary', method: 'get'%>

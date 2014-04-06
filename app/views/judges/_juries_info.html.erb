@@ -2,10 +2,10 @@
 
 <div class="accordion" id="accordion2">
   <div class="accordion-group">
-  	<% @judge.juries.each do |jury| %>
+  	<% @judge.juries.reverse_each do |jury| %>
     <%= create_progress_div(jury) %>
       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%=dummyInt%>">
-        <b> Jury for <%= Student.find(jury.student_id).name %> </b>
+        <b> Jury for <%= Student.find(jury.student_id).name %> on <%= jury.created_at %>. </b>
       </a>
     </div>
     <div id="collapse<%=dummyInt%>" class="accordion-body collapse">

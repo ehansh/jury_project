@@ -26,7 +26,7 @@
     <%= @student.course_num %>
   </p>
   <% if current_user.is_a? Student %>
-    <%= link_to 'Edit', edit_student_path(@student) %>
+    <%= button_to 'Edit', edit_student_path(@student), method: 'get'%>
   <% else %>
   
   <% end %>

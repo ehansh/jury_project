@@ -2,15 +2,15 @@
 	<div class="navbar-inner">
 		<div class="container" id="header">
 			<% if signed_in? %>
-				<%= link_to "Saint Mary's Music Deptarment Jury app", current_user, id: "logo" %>
+				<%= link_to "Musical Jury App", current_user, id: "logo" %>
 			<% else %>
-				<%= link_to "Saint Mary's Music Deptarment Jury app", root_path, id: "logo" %>
+				<%= link_to "Musical Jury App", root_path, id: "logo" %>
 			<% end %>
 			<nav>
 				<ul class="nav pull-right">
 					<% if signed_in? %>
 						<li><%= link_to "Home", current_user %></li>
-						<li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+						<li><%= link_to "Not " << current_user.name << "? Sign Out.", signout_path, method: "delete" %></li>
 					<% else %>
 						<li><%= link_to "Home", root_path %></li>
 						<li><%= link_to "Sign in", signin_path %></li>

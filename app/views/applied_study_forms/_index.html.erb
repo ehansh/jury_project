@@ -6,22 +6,49 @@
 </p>
 <%else%>
 <table>
-  <tr>
-    <th>Studies and Scales | </th> 
-    <th>Repertoire | </th>
-    <th></th>
-    <th></th>
-  </tr>
   <% @applied_study_forms.each do |applied_study_form| %>
     <tr>
-      <td><%= applied_study_form.studies_and_scales %></td>
-      <td><%= applied_study_form.repertoires.first.title rescue 'no repertoires were entered' %></td>
-      <td>
-        <% if current_user.is_a? Judge %><td></td>
-        <% else %><%= link_to 'Details', student_applied_study_form_path(@student, applied_study_form) %></td>
-        <% end %>
+      <td><a href="#myModal<%=applied_study_form.id%>" role="button" class="btn" data-toggle="modal">Applied Study Form created on <%= applied_study_form.created_at%><a></td>
     </tr>
-  <% end %>
+    <div id="myModal<%=applied_study_form.id%>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+     <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+       <h3 id="myModalLabel">Applied Study Form created on <%= applied_study_form.created_at%></h3>
+     </div>
+     <div class="modal-body">
+       <p>
+       <b>Studies and Scales:</b>
+       <br />
+       -<%= applied_study_form.studies_and_scales %>
+       </p>
+
+       <p>
+         <b>Repertoire:</b>
+          <% if applied_study_form.repertoires.first.nil? %>
+            No repertoire was added.
+          <%else%>
+            <% applied_study_form.repertoires.each do |repertoire| %>
+                  <br /> -<%= repertoire.title %> by <%= repertoire.composer %>
+            <% end %>
+          <% end %>
+       </p>
+
+       <p>
+        <b>Performances:</b>
+        <% if applied_study_form.performances.first.nil? %>
+          No performances were added.
+        <%else%>
+          <% applied_study_form.performances.each do |performance| %>
+                <br />-<%= performance.name %>
+          <% end %>
+        <% end %>
+       </p>
+     </div>
+       <div class="modal-footer">
+         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+       </div>
+    </div>
+<% end %>
 </table>
 <% end %>
 

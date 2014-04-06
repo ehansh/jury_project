@@ -32,6 +32,7 @@ module JuryFormsHelper
 		out << "</p>"
 		out << "<p>" << "<b>Comments:</b>"
 		out << jury_form.comments << "</p>"
+		out << "<p>" << "<b>Final Assessment:</B>" << jury_form.final_assessment
 
 		out.html_safe
 	end

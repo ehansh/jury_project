@@ -5,9 +5,9 @@
     		<% if @applied_study_form.repertoires.first.nil? %>
     			<tr id="first_row"><td>No repertoire has been added yet.</td></tr>
     		<%else%>
-    		<% @applied_study_form.repertoires.each do |repertoire| %>
-    			<%=repertoire_table_item(repertoire) %>
-    		<% end %>
+    		  <% @applied_study_form.repertoires.each do |repertoire| %>
+    		      	<%=repertoire_table_item(repertoire) %>
+    		  <% end %>
     		<% end %>
   		</tr>
   	</table>

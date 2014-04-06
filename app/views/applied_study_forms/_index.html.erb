@@ -6,7 +6,7 @@
 </p>
 <%else%>
 <table>
-  <% @applied_study_forms.each do |applied_study_form| %>
+  <% @applied_study_forms.reverse_each do |applied_study_form| %>
     <tr>
       <td><a href="#myModal<%=applied_study_form.id%>" role="button" class="btn" data-toggle="modal">Applied Study Form created on <%= applied_study_form.created_at%><a></td>
     </tr>

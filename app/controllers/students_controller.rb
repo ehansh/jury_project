@@ -63,6 +63,7 @@ class StudentsController < ApplicationController
 
     respond_to do |format|
       if @student.update_attributes(params[:student])
+        sign_in(@student)
         format.html { redirect_to @student, notice: 'Student was successfully updated.' }
         format.json { head :no_content }
       else

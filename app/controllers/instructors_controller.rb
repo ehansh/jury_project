@@ -61,6 +61,7 @@ class InstructorsController < ApplicationController
 
     respond_to do |format|
       if @instructor.update_attributes(params[:instructor])
+        sign_in(@instructor)
         #updating which student is in the current ID
         @student = Student.find(@instructor.student_id)
         @instructor.students << @student

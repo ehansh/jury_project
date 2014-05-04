@@ -6,9 +6,9 @@ class Student < ActiveRecord::Base
   has_secure_password
 
 
-  has_many :juries
+  has_many :juries, :dependent => :destroy
   has_many :applied_study_forms, :dependent => :destroy
-  has_many :repertoires
+  has_many :repertoires, :dependent => :destroy
 
   belongs_to :instructor
 

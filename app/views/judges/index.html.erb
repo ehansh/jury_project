@@ -1,31 +1,29 @@
-<% if current_user.is_a? Student %>
-  Sorry, you're not allowed to see this as a student!
-<% elsif current_user.is_a? Instructor %>
-  Sorry, you're not allowed to see this as an instructor!
+<% if current_user.is_a? Judge %>
+  <h1>Listing judges</h1>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+  <% @judges.each do |judge| %>
+    <tr>
+      <td><%= judge.name %>
+      <td><%= judge.email %></td>
+      <td><%= link_to 'Show', judge %></td>
+      <td><%= link_to 'Edit', edit_judge_path(judge) %></td>
+      <td><%= link_to 'Destroy', judge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </table>
+
+  <br />
+
+  <%= link_to 'New Judge', new_judge_path %>
 <% else %>
-<h1>Listing judges</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @judges.each do |judge| %>
-  <tr>
-    <td><%= judge.name %>
-    <td><%= judge.email %></td>
-    <td><%= link_to 'Show', judge %></td>
-    <td><%= link_to 'Edit', edit_judge_path(judge) %></td>
-    <td><%= link_to 'Destroy', judge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Judge', new_judge_path %>
+  Sorry, you're not allowed to see this!
 <% end %>

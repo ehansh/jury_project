@@ -4,7 +4,7 @@ class CreateJuryForms < ActiveRecord::Migration
       t.integer :applied_study_form_id
       t.integer :judge_id
       t.integer :criteria_id
-      t.string :comments
+      t.text :comments
       t.string :final_assessment
 
       t.timestamps

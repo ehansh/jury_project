@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140306165531) do
+ActiveRecord::Schema.define(:version => 20140504090224) do
 
   create_table "applied_study_forms", :force => true do |t|
     t.integer  "student_id"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(:version => 20140306165531) do
     t.integer  "applied_study_form_id"
     t.integer  "judge_id"
     t.integer  "criteria_id"
-    t.string   "comments"
+    t.text     "comments"
     t.string   "final_assessment"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false

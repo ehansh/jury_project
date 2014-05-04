@@ -1,27 +1,31 @@
 <% if current_user.is_a? Student %>
   Sorry, you're not allowed to see this as a student!
+<% elsif current_user.is_a? Judge %>
+  <h1>Listing instructors</h1>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+  <% @instructors.each do |instructor| %>
+    <tr>
+      <td><%= instructor.name %></td>
+      <td><%= link_to 'Show', instructor %></td>
+      <td><%= link_to 'Edit', edit_instructor_path(instructor) %></td>
+      <td><%= link_to 'Destroy', instructor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </table>
+
+
+
+  <br />
+
+  <%= link_to 'New Instructor', new_instructor_path %>
 <% else %>
-<h1>Listing instructors</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @instructors.each do |instructor| %>
-  <tr>
-    <td><%= instructor.name %></td>
-    <td><%= link_to 'Show', instructor %></td>
-    <td><%= link_to 'Edit', edit_instructor_path(instructor) %></td>
-    <td><%= link_to 'Destroy', instructor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Instructor', new_instructor_path %>
+  Sorry, you must be a judge and logged in to see this!
 <% end %>

@@ -2,10 +2,12 @@
   Sorry, you're not allowed to see this as a student!
 <% elsif current_user.is_a? Instructor %>
 	Sorry, you're not allowed to see this as an instructor!
-<% else %>
+<% elsif current_user.is_a? Judge %>
 <h1>New judge</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Back', judges_path %>
+<% else %>
+	Sorry, you have to be a judge and logged in to see this!
 <% end %>

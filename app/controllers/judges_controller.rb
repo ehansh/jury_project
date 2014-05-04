@@ -14,7 +14,9 @@ class JudgesController < ApplicationController
   # GET /judges/1.json
   def show
     @judge = Judge.find(params[:id])
+    @new_judge = Judge.new
     @jury = Jury.new
+    @instructor = Instructor.new
 
     respond_to do |format|
       format.html # show.html.erb
@@ -45,7 +47,6 @@ class JudgesController < ApplicationController
 
     respond_to do |format|
       if @judge.save
-        sign_in(@judge)
         format.html { redirect_to @judge, notice: 'Judge was successfully created.' }
         format.json { render json: @judge, status: :created, location: @judge }
       else

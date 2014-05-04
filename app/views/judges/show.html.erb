@@ -11,6 +11,8 @@
       <li class="active"><a href="#home" data-toggle="tab">Judge Information</a></li>
       <li><a href="#juries" data-toggle="tab">Juries</a></li>
       <li><a href="#new_jury" data-toggle="tab">New Jury</a></li>
+      <li><a href="#new_judge" data-toggle="tab">New Judge</a></li>
+      <li><a href="#new_instructor" data-toggle="tab">New Instructor</a></li>
    </ul>
   </div>
 
@@ -36,6 +38,14 @@
 
     <div class="tab-pane" id="new_jury">
       <%= render 'juries/form' %>
+    </div>
+
+    <div class="tab-pane" id="new_judge">
+      <%= render 'new_form' %>
+    </div>
+
+    <div class="tab-pane" id="new_instructor">
+      <%= render 'instructors/form' %>
     </div>
 
   </div>

@@ -1,5 +1,7 @@
 <% dummyInt = 1 %>
 
+<%= button_to 'Download Juries as CSV', juries_path(format: "csv"), method: "get" %>
+
 <div class="accordion" id="accordion2">
   <div class="accordion-group">
   	<% Jury.all.reverse_each do |jury| %>

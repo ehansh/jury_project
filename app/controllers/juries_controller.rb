@@ -7,6 +7,7 @@ class JuriesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @juries }
+      format.csv { send_data Jury.as_csv }
     end
   end
 

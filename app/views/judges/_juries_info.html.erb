@@ -1,6 +1,10 @@
 <% dummyInt = 1 %>
 
-<%= button_to 'Download Juries as CSV', juries_path(format: "csv"), method: "get" %>
+<%= form_tag(juries_path(format: "csv"), method: "get") do %>
+  <%= label_tag(:student_id, "Student:") %>
+  <%= collection_select :student, :student_id, [Student.create(name: "All", id: 0)].concat(Student.all), :id, :name %> 
+  <%= submit_tag("download") %>
+<% end %>
 
 <div class="accordion" id="accordion2">
   <div class="accordion-group">

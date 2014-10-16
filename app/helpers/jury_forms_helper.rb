@@ -13,7 +13,8 @@ module JuryFormsHelper
 
 	def form_information(jury_form)
 		out = ""
-		out << "<p><b>Student:</b>"<< jury_form.jury.student.name << "</p>"
+		out << "<p><b>Student: </b>"<< jury_form.jury.student.name << "</p>"
+		out << "<p><b>Judge: </b>" << jury_form.jury.judge.name << "</p>"
 		out << %Q[<table class="table table-striped table-bordered" id="repertoire_table">
 				<tr>
 	        		<th>Repotoire</th>

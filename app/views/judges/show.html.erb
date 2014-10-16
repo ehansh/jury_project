@@ -9,7 +9,8 @@
   <div id="tabs">
     <ul class="nav nav-tabs" data-tabs="tabs">
       <li class="active"><a href="#home" data-toggle="tab">Judge Information</a></li>
-      <li><a href="#juries" data-toggle="tab">Juries</a></li>
+      <li><a href="#my_juries" data-toggle="tab">My Juries</a></li>
+      <li><a href="#all_juries" data-toggle="tab">All Juries</a></li>
       <li><a href="#new_jury" data-toggle="tab">New Jury</a></li>
       <li><a href="#new_judge" data-toggle="tab">New Judge</a></li>
       <li><a href="#new_instructor" data-toggle="tab">New Instructor</a></li>
@@ -32,7 +33,11 @@
 
    </div>
 
-    <div class="tab-pane" id="juries">
+    <div class="tab-pane" id="my_juries">
+      <%= render 'my_juries_info' %>
+    </div>
+
+    <div class="tab-pane" id="all_juries">
       <%= render 'juries_info' %>
     </div>
 

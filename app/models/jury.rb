@@ -47,7 +47,7 @@ class Jury < ActiveRecord::Base
 							end #and of item_found == false
 						end #of current_headers.each
 						#filling in the columns
-						csv << [jury.student.name, jury.judge.name, jury.created_at, repertoire_string, final_assessment, jury.jury_forms.first.comments].concat(measures_array)
+						csv << [jury.student.name, jury.judge.first.name, jury.created_at, repertoire_string, final_assessment, jury.jury_forms.first.comments].concat(measures_array)
 					end #of Jury_find_all_by_measure_group_id.each
 				else #do a specific students jury
 					puts "** Generating CSV for a single student **"
@@ -78,7 +78,7 @@ class Jury < ActiveRecord::Base
 								end #and of item_found == false
 							end #of current_headers.each
 							#filling in the columns
-							csv << [jury.student.name, jury.judge.name, jury.created_at, repertoire_string, final_assessment, jury.jury_forms.first.comments].concat(measures_array)
+							csv << [jury.student.name, jury.judge.first.name, jury.created_at, repertoire_string, final_assessment, jury.jury_forms.first.comments].concat(measures_array)
 						end #if jury.measure_group_id == measure_group.id
 					end #find_all_by_student_id
 				end #if stuedent == nil

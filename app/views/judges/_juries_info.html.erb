@@ -1,9 +1,9 @@
 <% dummyInt = 1 %>
 
 <%= form_tag(juries_path(format: "csv"), method: "get") do %>
-  <%= label_tag(:student_id, "Student:") %>
-  <%= collection_select :student, :student_id, [Student.create(name: "All", id: 0)].concat(Student.all), :id, :name %> 
-  <%= submit_tag("download") %>
+  <%= label_tag(:student_id, "Download CSV for:") %>
+  <%= collection_select :student, :student_id, [Student.create(name: "All Students", id: 0)].concat(Student.all), :id, :name %> 
+  <%= submit_tag("Download CSV") %>
 <% end %>
 
 <div class="accordion" id="accordion2">

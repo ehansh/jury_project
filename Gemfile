@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.13'
 gem 'execjs'
 gem 'therubyracer'
 
@@ -17,7 +17,7 @@ end
 
 
 group :development, :test do
-	gem 'pg'
+	gem 'sqlite3'
 end
 
 group :production do

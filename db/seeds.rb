@@ -21,7 +21,7 @@ vocal = 		MeasureGroup.create({name: 'Vocal'})
 dynamics = 			Measure.create(name: 'Dynamics' )
 rhythm = 			Measure.create(name: 'Rhythm' )
 phrasing = 			Measure.create(name: 'Phrasing' )
-interpertation = 	Measure.create(name: 'Interpertation' )
+interpertation = 	Measure.create(name: 'Interpretation' )
 tone = 				Measure.create(name: 'Tone' )
 
 general.measures << [tone, dynamics, rhythm, phrasing, interpertation]

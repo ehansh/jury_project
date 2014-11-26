@@ -34,7 +34,8 @@ ActiveRecord::Schema.define(:version => 20140504090224) do
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
     t.string   "email"
-    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "password"
     t.string   "password_confirmation"
     t.string   "password_digest"
@@ -48,7 +49,8 @@ ActiveRecord::Schema.define(:version => 20140504090224) do
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
     t.string   "email"
-    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "password"
     t.string   "password_confirmation"
     t.string   "password_digest"
@@ -131,7 +133,8 @@ ActiveRecord::Schema.define(:version => 20140504090224) do
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
     t.string   "email"
-    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "password"
     t.string   "password_confirmation"
     t.integer  "repertoire_id"

@@ -2,7 +2,7 @@
 
 <%= form_tag(juries_path(format: "csv"), method: "get") do %>
   <%= label_tag(:student_id, "Download CSV for:") %>
-  <%= collection_select :student, :student_id, [Student.create(name: "All Students", id: 0)].concat(Student.all), :id, :name %> 
+  <%= collection_select :student, :student_id, [Student.create(first_name: "All", last_name: "students", id: 0)].concat(Student.all), :id, :name %> 
   <%= submit_tag("Download CSV") %>
 <% end %>
 
